@@ -1,10 +1,19 @@
 import { NextPage } from "next";
+import { useState } from "react";
 
 export const BillInput: NextPage = () => {
+  // assign value type to state
+  const [bill, setBill] = useState<number>(0);
   return (
     <div className="relative flex flex-col">
       <p>Bill</p>
-      <input type="text" className="input-style" placeholder="0" />
+      <input
+        type={"number"}
+        className="input-style"
+        placeholder="0"
+        value={bill}
+        onChange={(e) => setBill(Number(e.target.value))}
+      />
       <span className="svg-style">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -29,16 +38,16 @@ export const TipInput: NextPage = () => {
     <div className="relative flex flex-col">
       <p>Select Tip %</p>
       <div className="grid grid-cols-2 gap-5 sm:grid-cols-3">
-        {[5, 10, 15, 25, 50, "Custom"].map((number) => (
+        {["5%", "10%", "15%", "25%", "50%", "Custom"].map((number) => (
           <button
-            className={`rounded-md p-3 text-grayish_cyan-300 text-xl ${
+            className={`cursor-pointer rounded-md border-none p-1 text-xl text-grayish_cyan-300 ${
               number === "Custom"
                 ? "bg-grayish_cyan-100 text-grayish_cyan-700"
                 : "bg-cyan-900"
             }`}
             key={number}
           >
-            {number}%
+            {number}
           </button>
         ))}
       </div>
@@ -49,8 +58,8 @@ export const TipInput: NextPage = () => {
 export const NumberOfPeopleInput: NextPage = () => {
   return (
     <div className="relative flex flex-col">
-      <p>Bill</p>
-      <input type="text" className="input-style" placeholder="0" />
+      <p>Number of People</p>
+      <input type={"number"} className="input-style" placeholder="0" />
       <span className="svg-style">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +83,7 @@ export const TipAmount: NextPage = () => {
     <div className="flex flex-row items-center justify-between">
       <h5 className="text-white">
         Tip Amount <br />
-        <span className="text-grayish_cyan-700">/ person</span>
+        <span className="text-grayish_cyan-500">/ person</span>
       </h5>
       <span className="text-4xl font-bold text-cyan-500">$0.00</span>
     </div>
@@ -86,7 +95,7 @@ export const TotalAmount: NextPage = () => {
     <div className="flex flex-row items-center justify-between">
       <h5 className="text-white">
         Total <br />
-        <span className="text-grayish_cyan-700">/ person</span>
+        <span className="text-grayish_cyan-500">/ person</span>
       </h5>
       <span className="text-4xl font-bold text-cyan-500">$0.00</span>
     </div>
@@ -95,29 +104,24 @@ export const TotalAmount: NextPage = () => {
 
 const Index: NextPage = () => {
   return (
-    <div className="mt-[9%] flex items-center justify-center">
-      <div className="flex flex-col items-center justify-center space-y-5 sm:space-y-10">
-        <h1 className="text-2xl tracking-[0.5rem] text-grayish_cyan-700">
-          SPLI
+    <div className="flex h-screen flex-col justify-end sm:flex-row sm:justify-center">
+      <div className="flex max-w-4xl flex-col items-center justify-center">
+        <h3 className="mb-12 tracking-[0.6rem] text-grayish_cyan-700">
+          <span>SPLI</span>
           <br />
-          TTER
-        </h1>
-        <div className="grid gap-y-4 w-full rounded-t-[2rem] bg-white p-8 shadow-md sm:grid-cols-2 sm:gap-x-10 sm:rounded-xl">
-          <div className="space-y-4">
+          <span>TTER</span>
+        </h3>
+        <div className="flex flex-row flex-wrap items-stretch justify-center gap-y-10 rounded-2xl bg-white p-6 sm:gap-x-10">
+          <div className="">
             <BillInput />
             <TipInput />
             <NumberOfPeopleInput />
           </div>
-          <div className="rounded-xl bg-cyan-900 p-6 sm:px-8 sm:py-10">
-            <div className="flex h-full flex-col sm:justify-between">
-              <div className="space-y-5 sm:space-y-10">
-                <TipAmount />
-                <TotalAmount />
-              </div>
-              <button
-                className="mt-4 cursor-pointer rounded-md border-0 bg-cyan-500/90 py-3 font-bold text-cyan-900"
-                type="reset"
-              >
+          <div className="grow rounded-2xl bg-cyan-900 px-6 py-8">
+            <div>
+              <TipAmount />
+              <TotalAmount />
+              <button className="w-full" type="reset">
                 RESET
               </button>
             </div>
