@@ -4,12 +4,8 @@ export const BillInput: NextPage = () => {
   return (
     <div className="relative flex flex-col">
       <p>Bill</p>
-      <input
-        type="text"
-        className="rounded border-none bg-grayish_cyan-100 text-right text-2xl font-bold text-grayish_cyan-500 focus-within:ring-0"
-        placeholder="0"
-      />
-      <span className="absolute left-4 top-8 text-2xl text-grayish_cyan-500">
+      <input type="text" className="input-style" placeholder="0" />
+      <span className="svg-style">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5"
@@ -35,14 +31,14 @@ export const TipInput: NextPage = () => {
       <div className="grid grid-cols-2 gap-5 sm:grid-cols-3">
         {[5, 10, 15, 25, 50, "Custom"].map((number) => (
           <button
-            className={`rounded-md p-3 text-grayish_cyan-300 ${
+            className={`rounded-md p-3 text-grayish_cyan-300 text-xl ${
               number === "Custom"
                 ? "bg-grayish_cyan-100 text-grayish_cyan-700"
                 : "bg-cyan-900"
             }`}
             key={number}
           >
-            {number}
+            {number}%
           </button>
         ))}
       </div>
@@ -54,12 +50,8 @@ export const NumberOfPeopleInput: NextPage = () => {
   return (
     <div className="relative flex flex-col">
       <p>Bill</p>
-      <input
-        type="text"
-        className="rounded border-none bg-grayish_cyan-100 text-right text-2xl font-bold text-grayish_cyan-500 focus-within:ring-0"
-        placeholder="0"
-      />
-      <span className="absolute left-4 top-8 text-2xl text-grayish_cyan-500">
+      <input type="text" className="input-style" placeholder="0" />
+      <span className="svg-style">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-5 w-5"
@@ -104,13 +96,13 @@ export const TotalAmount: NextPage = () => {
 const Index: NextPage = () => {
   return (
     <div className="mt-[9%] flex items-center justify-center">
-      <div className="flex flex-col items-center justify-center">
-        <h1 className="text-2xl tracking-[0.5rem] text-grayish_cyan-700 sm:text-3xl">
+      <div className="flex flex-col items-center justify-center space-y-5 sm:space-y-10">
+        <h1 className="text-2xl tracking-[0.5rem] text-grayish_cyan-700">
           SPLI
           <br />
           TTER
         </h1>
-        <div className="grid gap-y-4 rounded-t-[2rem] bg-white p-8 shadow-md sm:grid-cols-2 sm:gap-x-10 sm:rounded-xl">
+        <div className="grid gap-y-4 w-full rounded-t-[2rem] bg-white p-8 shadow-md sm:grid-cols-2 sm:gap-x-10 sm:rounded-xl">
           <div className="space-y-4">
             <BillInput />
             <TipInput />
@@ -123,7 +115,7 @@ const Index: NextPage = () => {
                 <TotalAmount />
               </div>
               <button
-                className="mt-4 cursor-pointer rounded-md border-0 bg-cyan-500/50 py-3 font-bold text-cyan-900"
+                className="mt-4 cursor-pointer rounded-md border-0 bg-cyan-500/90 py-3 font-bold text-cyan-900"
                 type="reset"
               >
                 RESET
