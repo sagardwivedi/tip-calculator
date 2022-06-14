@@ -8,7 +8,7 @@
     @apply bg-grayish_cyan-300 font-space_mono font-bold;
   }
   p {
-    @apply text-grayish_cyan-700;
+    @apply mb-1 text-grayish_cyan-700;
   }
 }
 
@@ -21,11 +21,12 @@
     -webkit-appearance: none;
     margin: 0;
   }
+
   .svg-style {
-    @apply absolute left-4 top-9 text-2xl text-grayish_cyan-500;
+    @apply absolute left-4 top-8  text-2xl text-grayish_cyan-500;
   }
 
   .input-style {
-    @apply rounded border-none bg-grayish_cyan-100 text-right text-2xl font-bold text-cyan-900 placeholder:text-grayish_cyan-500 focus-within:ring-0;
+    @apply rounded border-none bg-grayish_cyan-100 text-right text-2xl font-bold focus-within:ring-0;
   }
 }
