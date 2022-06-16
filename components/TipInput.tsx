@@ -24,7 +24,7 @@ const TipInput: NextPage<TipInputProps> = ({
   return (
     <div className="mb-8">
       <p className="mb-3">Select Tip %</p>
-      <div className="flex flex-row flex-wrap gap-[10px] px-4 sm:px-0  md:grid md:grid-cols-3">
+      <div className="grid grid-cols-2 gap-5 px-4 sm:grid-cols-3 md:px-0">
         {[5, 10, 15, 25, 50].map((value) => (
           <label key={value}>
             <input

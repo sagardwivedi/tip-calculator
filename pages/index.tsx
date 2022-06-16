@@ -79,7 +79,7 @@ const Index: NextPage = () => {
               personAmount={personAmount}
             />
             <button
-              className={`w-full rounded-sm border-none bg-cyan-500/80 py-2 text-cyan-900 hover:bg-cyan-500 disabled:cursor-not-allowed disabled:bg-grayish_cyan-700`}
+              className={`w-full rounded-sm border-none bg-cyan-500/80 py-2 text-cyan-900 hover:bg-cyan-500 mt-6 md:mt-0 disabled:cursor-not-allowed disabled:bg-grayish_cyan-700`}
               type="reset"
               disabled={
                 !tip && !bill && !numberOfPeople && !customTip ? true : false

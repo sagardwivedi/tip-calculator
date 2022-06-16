@@ -7,7 +7,7 @@ type Props = {
 
 const ResultAmount: NextPage<Props> = ({ tipAmount, personAmount }) => {
   return (
-    <div className="space-y-10">
+    <div className="space-y-5 md:space-y-10">
       <div className="result">
         <h5>
           Tip Amount <br />
