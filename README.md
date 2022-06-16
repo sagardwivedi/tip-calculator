@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [GitHub Repo](https://github.com/sagardwivedi/tip-calculator)
-- Live Site URL: [Live](https://tip-calculator2.vercel.app/)
+- Solution URL: [GitHub](https://github.com/sagardwivedi/tip-calculator)
+- Live Site URL: [Tip Calculator](https://tip-calculator2.vercel.app/)
 
 ## My process
 
