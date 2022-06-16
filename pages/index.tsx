@@ -45,7 +45,7 @@ const Index: NextPage = () => {
   };
 
   return (
-    <div className="mt-[6%] flex justify-center">
+    <div className="mt-[7%] flex justify-center">
       <Head>
         <title>Tip Calculator</title>
         <meta
@@ -59,7 +59,7 @@ const Index: NextPage = () => {
           <br />
           <span>TTER</span>
         </h3>
-        <div className="flex flex-row flex-wrap justify-center gap-y-8 rounded-t-[2.5rem] bg-white p-8 sm:gap-x-10 sm:rounded-2xl sm:p-6">
+        <div className="flex flex-row flex-wrap justify-center gap-y-8 rounded-t-[2.5rem] bg-white p-8 shadow-xl sm:gap-x-10 sm:rounded-2xl sm:p-6">
           <div className="flex flex-grow flex-col">
             <BillInput bill={bill} setBill={setBill} />
             <TipInput
@@ -79,7 +79,7 @@ const Index: NextPage = () => {
               personAmount={personAmount}
             />
             <button
-              className={`w-full rounded-sm border-none bg-cyan-500/80 py-2 text-cyan-900 hover:bg-cyan-500 mt-6 md:mt-0 disabled:cursor-not-allowed disabled:bg-grayish_cyan-700`}
+              className={`mt-6 w-full rounded-sm border-none bg-cyan-500/80 py-2 text-cyan-900 hover:bg-cyan-500 disabled:cursor-not-allowed disabled:bg-grayish_cyan-700 md:mt-0`}
               type="reset"
               disabled={
                 !tip && !bill && !numberOfPeople && !customTip ? true : false
