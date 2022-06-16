@@ -10,6 +10,9 @@
   p {
     @apply mb-1 text-grayish_cyan-700;
   }
+  h5 {
+    @apply text-white;
+  }
 }
 
 @tailwind components;
@@ -23,10 +26,14 @@
   }
 
   .svg-style {
-    @apply absolute left-4 top-8  text-2xl text-grayish_cyan-500;
+    @apply absolute left-4 top-10 text-2xl text-grayish_cyan-500;
   }
 
   .input-style {
-    @apply rounded border-none bg-grayish_cyan-100 text-right text-2xl font-bold focus-within:ring-0;
+    @apply rounded border-none bg-grayish_cyan-100 text-right text-2xl font-bold focus-within:ring-2;
+  }
+
+  .result-container {
+    @apply flex flex-row items-center justify-between;
   }
 }

@@ -1,8 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  corePlugins: {
-    preflight: false,
-  },
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
@@ -26,6 +23,7 @@ module.exports = {
         500: "#7f9c9f",
         700: "#5e7a7d",
       },
+      red: "#952E25",
     },
     extend: {},
   },
