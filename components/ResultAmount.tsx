@@ -7,8 +7,8 @@ type Props = {
 
 const ResultAmount: NextPage<Props> = ({ tipAmount, personAmount }) => {
   return (
-    <div className="sm:w-72">
-      <div className="result-container mb-6">
+    <div className="space-y-10">
+      <div className="result">
         <h5>
           Tip Amount <br />
           <span className="text-grayish_cyan-500">/person</span>
@@ -17,7 +17,7 @@ const ResultAmount: NextPage<Props> = ({ tipAmount, personAmount }) => {
           ${tipAmount.toFixed(2)}
         </span>
       </div>
-      <div className="result-container">
+      <div className="result">
         <h5>
           Total <br />
           <span className="text-grayish_cyan-500">/person</span>

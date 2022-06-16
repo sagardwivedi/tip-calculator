@@ -2,24 +2,34 @@ import { NextPage } from "next";
 import { ChangeEvent } from "react";
 
 type BillInputProps = {
-  bill: number;
-  setBill: (bill: number) => void;
+  bill: string;
+  setBill: (bill: string) => void;
 };
 
 const BillInput: NextPage<BillInputProps> = ({ bill, setBill }) => {
   const handleBillChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setBill(Number(event.target.value));
+    setBill(event.target.value);
   };
-
   return (
     <div className="relative mb-8 flex grow flex-col">
       <p>Bill</p>
+
+      {/* Showing this when bill === "0" */}
+      {bill === "0" ? (
+        <span className="absolute right-0 text-red">Can&apos;t be zero</span>
+      ) : (
+        ""
+      )}
+
       <input
         type={"number"}
         className={`input-style ${
-          bill > 0 ? "text-cyan-900" : "text-grayish_cyan-500"
-        } focus-within:ring-cyan-500`}
+          bill === "0"
+            ? "ring-red focus:ring-red"
+            : "ring-transparent focus:ring-cyan-500"
+        }`}
         value={bill}
+        placeholder={`0`}
         onChange={handleBillChange}
       />
       <span className="svg-style">

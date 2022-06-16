@@ -8,37 +8,46 @@ import ResultAmount from "../components/ResultAmount";
 import TipInput from "../components/TipInput";
 
 const Index: NextPage = () => {
-  const [bill, setBill] = useState<number>(0);
-  const [tip, setTip] = useState<number>(0);
-  const [numberOfPeople, setNumberOfPeople] = useState<number>(0);
+  const [bill, setBill] = useState<string>("");
+  const [tip, setTip] = useState<string>("");
+  const [customTip, setCustomTip] = useState<string>("");
+  const [numberOfPeople, setNumberOfPeople] = useState<string>("");
 
   const calculateResult = () => {
-    if (bill > 0 && tip > 0 && numberOfPeople > 0) {
-      const tipAmount = (bill * tip) / 100;
-      const tipPerPerson = tipAmount / numberOfPeople;
-      const personAmount = (tipAmount + bill) / numberOfPeople;
+    const billAmount = Number(bill);
+    const tipAmounts = Number(tip);
+    const customTipAmount = Number(customTip);
+    const numberOfPeoples = Number(numberOfPeople);
+
+    if (billAmount > 0 && tipAmounts > 0 && numberOfPeoples > 0) {
+      const tipAmount = billAmount * (tipAmounts / 100);
+      const tipPerPerson = tipAmount / numberOfPeoples;
+      const personAmount = (tipAmount + billAmount) / numberOfPeoples;
       return { tipPerPerson, personAmount };
     }
+    if (billAmount > 0 && customTipAmount > 0 && numberOfPeoples > 0) {
+      const tipAmount = billAmount * (customTipAmount / 100);
+      const tipPerPerson = tipAmount / numberOfPeoples;
+      const personAmount = (tipAmount + billAmount) / numberOfPeoples;
+      return { tipPerPerson, personAmount };
+    }
+
     return { tipPerPerson: 0.0, personAmount: 0.0 };
   };
-
-  useEffect(() => {
-    calculateResult();
-  });
 
   const { tipPerPerson, personAmount } = calculateResult();
 
   const resetAll = () => {
-    setBill(0);
-    setTip(0);
-    setNumberOfPeople(0);
+    setBill("");
+    setTip("");
+    setCustomTip("");
+    setNumberOfPeople("");
   };
 
   return (
     <div className="mt-[6%] flex justify-center">
       <Head>
         <title>Tip Calculator</title>
-        {/* give information about app */}
         <meta
           name="description"
           content="A wonderfull app to calculate the tip. BestUI"
@@ -50,24 +59,31 @@ const Index: NextPage = () => {
           <br />
           <span>TTER</span>
         </h3>
-        <div className="flex flex-row flex-wrap justify-center gap-y-10 rounded-t-[2rem] bg-white p-8 sm:gap-x-10 sm:rounded-2xl sm:p-6">
-          <div className="flex-grow">
+        <div className="flex flex-row flex-wrap justify-center gap-y-8 rounded-t-[2.5rem] bg-white p-8 sm:gap-x-10 sm:rounded-2xl sm:p-6">
+          <div className="flex flex-grow flex-col">
             <BillInput bill={bill} setBill={setBill} />
-            <TipInput tip={tip} setTip={setTip} />
+            <TipInput
+              customTip={customTip}
+              setCustomTip={setCustomTip}
+              tip={tip}
+              setTip={setTip}
+            />
             <NumberOfPeopleInput
               numberOfPeople={numberOfPeople}
               setNumberOfPeople={setNumberOfPeople}
             />
           </div>
-          <div className="flex grow flex-col justify-between rounded-2xl bg-cyan-900 px-8 py-10">
+          <div className="flex w-[350px] grow flex-col justify-between rounded-2xl bg-cyan-900 px-8 py-10">
             <ResultAmount
               tipAmount={tipPerPerson}
               personAmount={personAmount}
             />
             <button
-              className={`mt-6 w-full rounded-sm border-none bg-cyan-500/80 py-2 text-cyan-900 hover:bg-cyan-500 disabled:bg-grayish_cyan-700`}
+              className={`w-full rounded-sm border-none bg-cyan-500/80 py-2 text-cyan-900 hover:bg-cyan-500 disabled:cursor-not-allowed disabled:bg-grayish_cyan-700`}
               type="reset"
-              disabled={!bill || !tip || !numberOfPeople}
+              disabled={
+                !tip && !bill && !numberOfPeople && !customTip ? true : false
+              }
               onClick={resetAll}
             >
               RESET
