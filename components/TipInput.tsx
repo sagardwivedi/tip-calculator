@@ -19,7 +19,7 @@ const TipInput: NextPage<TipInputProps> = ({ setTip }) => {
               onChange={(e) => setTip(Number(e.target.value))}
             />
             <div
-              className={`flex h-12 w-[9.5rem] cursor-pointer items-center justify-center rounded-md bg-cyan-900 text-xl text-grayish_cyan-300 peer-checked:bg-cyan-500 peer-checked:text-cyan-900 sm:w-28 sm:text-2xl`}
+              className={`flex h-11 w-[9.5rem] cursor-pointer items-center justify-center rounded-md bg-cyan-900 text-xl text-grayish_cyan-300 transition-colors duration-200 ease-linear peer-checked:bg-cyan-500 peer-checked:text-cyan-900 sm:w-28`}
             >
               {tip}%
             </div>
