@@ -30,12 +30,12 @@ const Index: NextPage = () => {
   const { tipPerPerson, personAmount } = calculateResult();
 
   return (
-    <div className="flex mt-[8%] justify-center">
+    <div className="mt-[6%] flex justify-center">
       <Head>
         <title>Tip Calculator</title>
       </Head>
       <div className="flex flex-col items-center justify-center">
-        <h3 className="mb-12 tracking-[0.6rem] text-grayish_cyan-700">
+        <h3 className="mb-8 text-2xl tracking-[0.6rem] text-grayish_cyan-700 sm:mb-12 sm:text-lg">
           <span>SPLI</span>
           <br />
           <span>TTER</span>
@@ -43,16 +43,19 @@ const Index: NextPage = () => {
         <div className="flex w-full max-w-4xl flex-row flex-wrap justify-center gap-y-10 rounded-t-[2rem] bg-white p-8 sm:gap-x-10 sm:rounded-2xl sm:p-6">
           <div>
             <BillInput bill={bill} setBill={setBill} />
-            <TipInput tip={tip} setTip={setTip} />
+            <TipInput setTip={setTip} />
             <NumberOfPeopleInput
               numberOfPeople={numberOfPeople}
               setNumberOfPeople={setNumberOfPeople}
             />
           </div>
           <div className="flex flex-grow flex-col justify-between rounded-2xl bg-cyan-900 px-8 py-10">
-            <ResultAmount tipAmount={tipPerPerson} personAmount={personAmount} />
+            <ResultAmount
+              tipAmount={tipPerPerson}
+              personAmount={personAmount}
+            />
             <button
-              className="mt-6 w-full rounded-sm border-none bg-cyan-500/90 py-2 text-cyan-900 disabled:bg-cyan-900/70"
+              className="mt-6 w-full rounded-sm border-none bg-grayish_cyan-700 py-2 text-cyan-900 hover:bg-cyan-500/90 disabled:bg-cyan-900/70"
               type="reset"
             >
               RESET
