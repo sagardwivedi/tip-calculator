@@ -36,11 +36,7 @@ const TipInput: NextPage<TipInputProps> = ({
               type="radio"
               value={value}
               onChange={handleTipChange}
-              checked={
-                Number(tip) === 0 || customTip.length > 0
-                  ? false
-                  : Number(tip) === value
-              }
+              checked={Number(tip) === 0 ? false : Number(tip) === value}
             />
             <div
               className={`flex h-11 w-[9.5rem] cursor-pointer items-center justify-center rounded-md bg-cyan-900 text-xl text-grayish_cyan-300 transition-colors duration-200 ease-linear peer-checked:bg-cyan-500 peer-checked:text-cyan-900 sm:w-28`}
